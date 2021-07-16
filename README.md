@@ -8,6 +8,14 @@ The main difference is that instead of only using the handler creation time to c
 
 This allows you to easily keep weekly logfiles for a periodic process that only takes 5 minutes to run, without making that process into a service or long running process.
 
+## Install
+
+With pip:
+
+```
+pip install ATRFileHandler
+```
+
 ## Usage
 
 It can be used exactly as the [TimedRotatingFileHandler](https://docs.python.org/3/library/logging.handlers.html#logging.handlers.TimedRotatingFileHandler) from the builting `logging` module.
