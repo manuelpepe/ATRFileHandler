@@ -4,10 +4,10 @@ from logging.handlers import TimedRotatingFileHandler
 from pathlib import Path
 
 __all__ = [
-    "AbsoluteTimedRotatingFileHandler",
+    "ATRFileHandler",
 ]
 
-class AbsoluteTimedRotatingFileHandler(TimedRotatingFileHandler):
+class ATRFileHandler(TimedRotatingFileHandler):
     """ A TimedRotatingFileHandler that works for repeated short-duration executions. 
     When instanciated it tries to read the next rollover time from a cache file, if it exists.
     Otherwise it uses the current time to calculate the next rollover and write it to the cache. 
