@@ -5,8 +5,10 @@ ATRFileHandler, or AbsoluteTimedRotatingFileHandler, is a file handler like [Tim
 ## Diferences with TimedRotatingFileHandler
 
 The main difference is that instead of only using the handler creation time to calculate the next rollover, it also writes and reads it from a cache file.
+With TimeRotatingFileHandler, if you want to rotate logs daily but your process starts and ends in a couple of minutes, when you run it in one hour the logfile
+will not rotate, because the handler won't remember the last time it was used. ATRHandler will rotate it because it saves this data to a file cache.
 
-This allows you to easily keep weekly logfiles for a periodic process that only takes 5 minutes to run, without making that process into a service or long running process.
+This allows you to easily keep weekly logfiles for a periodic shot-lived process, without making that process into a service or long running process.
 
 ## Install
 
