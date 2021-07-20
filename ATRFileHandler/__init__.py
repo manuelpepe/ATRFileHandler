@@ -13,20 +13,21 @@ class ATRFileHandler(TimedRotatingFileHandler):
     Otherwise it uses the current time to calculate the next rollover and write it to the cache. 
     The cache is automatically updated when rollover occurs.
     
-    The cache is a file with the log filename plus '.nextrot' extension.
-    For a logfile 'test.log', the cachefile will be 'test.log.nextrot'. """
+    By default, the cache is a file with the log filename plus '.nextrot' suffix.
+        For a logfile 'test.log', the cachefile will be 'test.log.nextrot'. """
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, cache_suffix: str = ".nextrot", **kwargs):
         super().__init__(*args, **kwargs)
+        self.cache_suffix = cache_suffix
         if self._rollover_cache_exists():
             self.rolloverAt = self._read_next_rollover_from_cache()
         else:
             self._write_next_rollover_to_cache()
     
     def _cache_filename(self) -> Path:
-        return Path(f"{self.baseFilename}.nextrot") 
+        return Path(f"{self.baseFilename}{self.cache_suffix}") 
 
-    def _rollover_cache_exists(self):
+    def _rollover_cache_exists(self) -> bool:
         return self._cache_filename().exists()
 
     def _read_next_rollover_from_cache(self) -> int:

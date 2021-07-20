@@ -42,5 +42,5 @@ if [[ "$act" == "upload" ]]; then
 elif [[ "$act" == "build" ]]; then
     python3 setup.py sdist bdist_wheel
 else
-    echo "Usage $0 <upload|build>"
+    echo "Usage $0 <upload [master|test]|build>"
 fi
