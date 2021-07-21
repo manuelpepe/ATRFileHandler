@@ -10,7 +10,7 @@ with open(README, "r") as fp:
 
 setup(
     name='ATRFileHandler',
-    version='0.1',
+    version='0.1.1',
     description='Time handler for repetitive short-duration processes.',
     long_description=long_description,
     long_description_content_type="text/markdown",
