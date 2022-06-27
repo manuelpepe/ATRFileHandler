@@ -24,7 +24,7 @@ It can be used exactly as the [TimedRotatingFileHandler](https://docs.python.org
 
 Example:
 
-```
+```python
 import logging
 from ATRFileHandler import ATRFileHandler
 
